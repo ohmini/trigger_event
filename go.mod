@@ -1,4 +1,4 @@
-module example.com/user/ohmcs
+module example.com/user/listen_event
 
 go 1.14
 
