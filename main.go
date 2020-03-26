@@ -23,10 +23,12 @@ func waitForNotification(l *pq.Listener) {
 				return
 			}
 			fmt.Println(string(prettyJSON.Bytes()))
-			cmd := exec.Command("mkdir", "test")
+			cmd := exec.Command("gatsby", "build")
 			if err := cmd.Run(); err != nil {
 				fmt.Println("Error run command: ", err)
+				return
 			}
+			fmt.Println("build success.")
 			return
 		case <-time.After(90 * time.Second):
 			fmt.Println("Received no events for 90 seconds, checking connection")
